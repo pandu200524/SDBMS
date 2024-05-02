@@ -1,0 +1,47 @@
+Insert data into Departments table
+Insert data into Departments table
+INSERT INTO Departments (department_id, name, head_of_department_id)
+VALUES
+    (1, 'Mathematics', 2), 
+    (2, 'Science', 3),       
+    (3, 'History', NULL);    
+
+Insert data into Teachers table
+INSERT INTO Teachers (teacher_id, name, email, phone_number, department_id)
+VALUES
+    (1, 'John Doe', 'john.doe@gmail.com', '123456789', 1), 
+    (2, 'Jane Smith', 'jane.smith@gmail.com', '987654321', 1),
+    (3, 'Michael Johnson', 'michael.@gmail.com', 456789123', 2);
+
+Insert data into Students table
+INSERT INTO Students (student_id, name, email, phone_number, department_id)
+VALUES
+    (1, 'Alice Johnson', 'alice.johnson@gmail.com', '111222333', 1),  
+    (2, 'Bob Williams', 'bob.williams@gmail.com', '444555666', 2);    
+
+Insert data into Courses table
+INSERT INTO Courses (course_id, name, teacher_id, department_id)
+VALUES
+    (1, 'Algebra', 1, 1),     
+    (2, 'Biology', 3, 2),      
+    (3, 'History', NULL, 3);
+
+Insert data into Enrollments table
+INSERT INTO Enrollments (enrollment_id, student_id, course_id, enrollment_date)
+VALUES 
+    (1, 1, 1, '2024-04-01'),  
+    (2, 2, 2, '2024-04-02');   
+
+Inserting data into the Grades table
+INSERT INTO Grades (student_id, course_id, grade)
+VALUES
+    (1, 1, 'A'),  
+    (2, 2, 'B+'), 
+    (1, 2, 'C');  
+
+Inserting data into the Attendance table
+INSERT INTO Attendance (student_id, course_id, attendance_date, present)
+VALUES
+    (1, 1, '2024-04-01', true),  
+    (2, 2, '2024-04-02', true),  
+    (1, 2, '2024-04-02', false); 
