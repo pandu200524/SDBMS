@@ -1,0 +1,57 @@
+create database school;
+use school;
+CREATE TABLE Departments (
+    department_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    head_of_department_id INT
+);
+CREATE TABLE Teachers (
+    teacher_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    phone_number VARCHAR(15),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES Departments(department_id)
+);
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    phone_number VARCHAR(15),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES Departments(department_id)
+);
+CREATE TABLE Courses (
+    course_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    teacher_id INT,
+    department_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES Teachers(teacher_id),
+    FOREIGN KEY (department_id) REFERENCES Departments(department_id)
+);
+CREATE TABLE Enrollments (
+    enrollment_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+CREATE TABLE Grades (
+    grade_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    grade VARCHAR(2),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+CREATE TABLE Attendance (
+    attendance_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    attendance_date DATE,
+    present BOOLEAN,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
